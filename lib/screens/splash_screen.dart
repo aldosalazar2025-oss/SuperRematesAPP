@@ -1,4 +1,3 @@
-import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import '../services/onboarding_service.dart';
@@ -71,46 +70,49 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1B3FB8),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Fondo: la misma imagen ampliada y difuminada para llenar toda
-          // la pantalla sin recortar la imagen principal.
-          ImageFiltered(
-            imageFilter: ImageFilter.blur(sigmaX: 28, sigmaY: 28),
-            child: Image.asset('assets/inicio.png', fit: BoxFit.cover),
-          ),
-          Container(color: const Color(0xFF0A2A8A).withValues(alpha: 0.35)),
-          Center(
-            child: FadeTransition(
-              opacity: _fadeAnimation,
-              child: ScaleTransition(
-                scale: _scaleAnimation,
-                child: Image.asset(
-                  'assets/inicio.png',
-                  width: double.infinity,
-                  fit: BoxFit.fitWidth,
+      backgroundColor: AppTheme.bgWhite,
+      body: Center(
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: ScaleTransition(
+            scale: _scaleAnimation,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/sr_acobamba.png',
+                  height: 190,
+                  width: 190,
+                  fit: BoxFit.contain,
                 ),
-              ),
+                const SizedBox(height: 24),
+                ShaderMask(
+                  shaderCallback: (rect) => const LinearGradient(
+                    colors: [AppTheme.accent, AppTheme.primary],
+                  ).createShader(rect),
+                  child: const Text(
+                    'S.R. ACOBAMBA',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 28),
+                const SizedBox(
+                  width: 26,
+                  height: 26,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 3,
+                    color: AppTheme.accent,
+                  ),
+                ),
+              ],
             ),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: MediaQuery.of(context).padding.bottom + 28,
-            child: const Center(
-              child: SizedBox(
-                width: 26,
-                height: 26,
-                child: CircularProgressIndicator(
-                  strokeWidth: 3,
-                  color: AppTheme.accent,
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

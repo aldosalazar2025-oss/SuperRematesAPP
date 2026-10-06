@@ -34,7 +34,7 @@ class BienvenidaScreen extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         children: [
                           Image.asset(
-                            'assets/sr_acobamba.png',
+                            'assets/inicio.png',
                             fit: BoxFit.contain,
                           ),
                           Positioned.fill(
