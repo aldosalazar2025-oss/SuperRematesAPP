@@ -1,62 +1,79 @@
 # S.R. ACOBAMBA
 
-POS Flutter (Android + iOS): venta por unidad o kilos, escáner, tickets térmicos y WhatsApp.
+**Sistema de punto de venta (POS) de la tienda Super Remates Acobamba.**
+Versión personalizada de SRZ VENTAS, desarrollada por **Grupo Salazar**.
 
-**Versión:** 2.0.1+4  
-**Bundle / applicationId:** `com.sracobamba`
+Versión: 2.0.1+4 · Hecho con Flutter · Android y iPhone · Funciona 100 % en el celular, sin servidor.
 
-App 100% local en el dispositivo. Sin Firebase ni servidor.
+---
 
-## Instalar en tu iPhone (sin App Store)
+## ¿Qué es?
 
-Sí se puede. No sube a la tienda: se genera un **IPA Ad Hoc** y lo instalas solo en **tu** iPhone.
+S.R. ACOBAMBA es la app de ventas de **Super Remates Acobamba**. Es una versión de SRZ VENTAS con la marca de la tienda: nombre, icono, pantalla de inicio y colores **celeste y rosado**.
 
-Necesitas cuenta **Apple Developer** (99 USD/año). Con cuenta gratis de Apple no se puede firmar un IPA en Codemagic para instalarlo estable.
+Se instala como una app aparte (identificador `com.sracobamba`), así que puede convivir en el mismo celular con SRZ VENTAS sin reemplazarla.
 
-### 1. Registrar tu iPhone
+## ¿Para qué sirve?
 
-1. En el iPhone: **Ajustes → General → Información**. Copia el **UDID** (o conéctalo a un Mac / usa [udid.tech](https://udid.tech) / Finder).
-2. En [developer.apple.com](https://developer.apple.com) → **Certificates, Identifiers & Profiles** → **Devices** → agrega el iPhone (nombre + UDID).
-3. Crea el App ID **com.sracobamba** si no existe.
+- Registrar las ventas de la tienda desde el celular.
+- Controlar el inventario (TV y electrónica, celulares y accesorios, juguetes, hogar y cocina, ropa y más).
+- Cobrar en efectivo, Yape, Plin o tarjeta, y calcular el vuelto.
+- Imprimir el ticket o enviarlo por WhatsApp.
+- Revisar el historial de ventas y sacar reportes en Excel.
 
-### 2. Codemagic
+## Funciones principales
 
-1. Conecta el repo [aldosalazar2025-oss/szrventas-app](https://github.com/aldosalazar2025-oss/szrventas-app).
-2. **Teams → Code signing identities**: inicia sesión con Apple Developer.
-3. Distribution: **Ad Hoc** (no App Store). Bundle ID: `com.sracobamba`.
-4. Lanza el workflow **iOS IPA para mi iPhone (Ad Hoc)**.
-5. Al terminar, descarga el archivo `.ipa`.
+**Ventas**
+- Escáner de códigos de barras con la cámara.
+- Venta por unidad o por peso.
+- Descuento en **soles (S/)** o en **porcentaje (%)**.
+- Métodos de pago: Efectivo, Yape, Plin y Tarjeta, con QR de Yape/Plin.
+- Monto recibido, botones rápidos y **vuelto** automático.
+- Nota opcional por venta.
 
-### 3. Instalar el IPA
+**Productos e inventario**
+- Productos con foto, precios, stock y categoría.
+- Tallas y colores (útil para ropa y calzado), tamaños y opciones con precio extra.
+- Generación y exportación de códigos de barras (imagen y PDF).
 
-- **Windows:** [Sideloadly](https://sideloadly.io) o 3uTools, iPhone con cable, elige el `.ipa`.
-- **Mac:** Finder (iPhone conectado) o Apple Configurator 2 → arrastra el `.ipa`.
-- Primera vez en el iPhone: **Ajustes → General → Administración de VPN y dispositivos** → confiar en el certificado del desarrollador.
+**Tickets e impresión**
+- Impresora térmica **Bluetooth** (58 mm u 80 mm).
+- Ticket con nombre, dirección, teléfono, RUC y mensaje de la tienda.
+- Compartir el ticket por WhatsApp.
 
-El IPA solo funciona en iPhones cuyo UDID registraste. Si cambias de teléfono, hay que registrar el nuevo y volver a compilar.
+**Control**
+- Historial de ventas y exportación a Excel.
+- Vendedores y categorías.
+- **Respaldo** completo e importación.
+- Moneda configurable (por defecto S/).
 
-### Workflows
+## Cómo funciona
 
-- **iOS Compile (sin firmar):** solo prueba que compile.
-- **iOS IPA para mi iPhone (Ad Hoc):** IPA para instalar directo.
+1. Al abrir la app se ve el logo animado de S.R. ACOBAMBA.
+2. La primera vez aparece la bienvenida con el botón **Empezar** y se configuran los datos de la tienda.
+3. En **Ajustes** se configura la impresora, los métodos de pago, los QR y los vendedores.
+4. En **Inventario** se cargan los productos.
+5. Para vender: escanear o elegir productos, revisar la orden, aplicar descuento si hace falta, elegir el método de pago y confirmar. El stock baja solo y la venta queda en el historial.
 
-## Local
+Los datos se guardan **en el celular**. Esta versión tiene su propia base de datos: para pasar productos desde SRZ VENTAS, hay que hacer un **respaldo** allá e importarlo aquí (Ajustes → Avanzado). Conviene hacer respaldos seguido.
+
+## Importante
+
+Los tickets son comprobantes simples de venta. **No son boletas ni facturas** ni documentos vinculados a SUNAT.
+
+## Compilar
 
 ```bash
 flutter pub get
 flutter run
-```
-
-Android release (con `android/key.properties` y el `.jks` locales, no van al repo):
-
-```bash
 flutter build apk --release
 ```
 
-## Permisos iOS
+Para Android release se necesita `android/key.properties` y el archivo `.jks` (no se suben al repositorio). Para iPhone se puede usar Codemagic (`codemagic.yaml`, bundle ID `com.sracobamba`).
 
-Cámara (escáner), fotos (QR Yape/Plin), Bluetooth (impresora) y ubicación para BLE.
+## Créditos
 
-## Secretos
+Sistema desarrollado por **Grupo Salazar**.
+Soporte por WhatsApp: **+51 900 725 974**
 
-No se suben: `key.properties`, keystores, `.env`, `google-services.json`.
+Tienda: **Super Remates Acobamba** — "Variedad, calidad y los mejores precios".
