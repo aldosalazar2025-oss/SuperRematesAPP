@@ -46,12 +46,28 @@ class _ConfiguracionAvanzadaScreenState
   bool _importando = false;
   bool _tallasColoresHabilitado = false;
   bool _tamanosVariantesHabilitado = false;
+  bool _imprimirTildes = true;
 
   @override
   void initState() {
     super.initState();
+    _cargarImprimirTildes();
     _cargarEstadoTallasColores();
     _cargarEstadoTamanosVariantes();
+  }
+
+  Future<void> _cargarImprimirTildes() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (mounted) {
+      setState(() => _imprimirTildes = prefs.getBool('imprimir_tildes') ?? true);
+    }
+  }
+
+  Future<void> _cambiarImprimirTildes(bool v) async {
+    setState(() => _imprimirTildes = v);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('imprimir_tildes', v);
+    PrinterService.instance.configurar(tildes: v);
   }
 
   Future<void> _cargarEstadoTallasColores() async {
@@ -998,6 +1014,27 @@ class _ConfiguracionAvanzadaScreenState
                     context,
                     MaterialPageRoute(builder: (_) => const CodigosBarrasScreen()),
                   ),
+                ),
+                const Divider(height: 1),
+                SwitchListTile(
+                  secondary: const Icon(
+                    Icons.spellcheck_rounded,
+                    color: AppTheme.primary,
+                  ),
+                  title: const Text(
+                    'Imprimir ñ y tildes',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  subtitle: Text(
+                    _imprimirTildes
+                        ? 'Activado · Si en el ticket salen símbolos raros, '
+                            'desactívalo y se imprimirá n, a, e, i, o, u'
+                        : 'Desactivado · Se imprime n, a, e, i, o, u',
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                  value: _imprimirTildes,
+                  activeColor: AppTheme.accent,
+                  onChanged: _cambiarImprimirTildes,
                 ),
               ],
             ),

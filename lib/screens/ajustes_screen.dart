@@ -336,7 +336,13 @@ class _AjustesScreenState extends State<AjustesScreen> {
                   DropdownMenuItem(value: 80.0, child: Text('80 mm (Grande)')),
                 ],
                 onChanged: (v) {
-                  if (v != null) setState(() => _anchoPapel = v);
+                  if (v != null) {
+                    setState(() => _anchoPapel = v);
+                    SharedPreferences.getInstance().then(
+                      (pr) => pr.setDouble('impresora_ancho', v),
+                    );
+                    PrinterService.instance.configurar(anchoPapel: v);
+                  }
                 },
               ),
             ),
@@ -832,11 +838,15 @@ class _AjustesScreenState extends State<AjustesScreen> {
       // Basic text print test
       List<int> bytes = [];
       bytes.addAll([0x1B, 0x40]); // Init
+      await PrinterService.instance.cargarDesdePrefs();
+      final ps = PrinterService.instance;
+      bytes.addAll(ps.comandoCodepage);
       bytes.addAll([0x1B, 0x61, 0x01]); // Align center
-      bytes.addAll("==========================\n".codeUnits);
-      bytes.addAll("    S.R. ACOBAMBA    \n".codeUnits);
-      bytes.addAll("    PRUEBA DE CONEXION    \n".codeUnits);
-      bytes.addAll("==========================\n\n\n\n".codeUnits);
+      bytes.addAll(ps.codificar("==========================\n"));
+      bytes.addAll(ps.codificar("S.R. ACOBAMBA\n"));
+      bytes.addAll(ps.codificar("PRUEBA DE CONEXIÓN\n"));
+      bytes.addAll(ps.codificar("Muñeco ñandú áéíóú ÁÉÍÓÚ ¡¿?!\n"));
+      bytes.addAll(ps.codificar("==========================\n\n\n\n"));
       await PrintBluetoothThermal.writeBytes(bytes);
 
       if (mounted) {
@@ -942,6 +952,15 @@ class _AjustesScreenState extends State<AjustesScreen> {
                             mac: p.macAdress,
                             printerName: p.name,
                           );
+                          // Guardar de inmediato: antes solo se guardaba al
+                          // pulsar "Guardar" y por eso, al cerrar la app, la
+                          // impresora se desvinculaba.
+                          final prefsImp =
+                              await SharedPreferences.getInstance();
+                          await prefsImp.setString(
+                              'impresora_mac', p.macAdress);
+                          await prefsImp.setString(
+                              'impresora_nombre', p.name);
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text('✅ Conectado a ${p.name}'),
