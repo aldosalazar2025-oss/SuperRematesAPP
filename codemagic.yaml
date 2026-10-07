@@ -30,9 +30,9 @@ workflows:
       cocoapods: default
       ios_signing:
         distribution_type: ad_hoc
-        bundle_identifier: com.sracobamba
+        bundle_identifier: com.szrventas
       vars:
-        BUNDLE_ID: com.sracobamba
+        BUNDLE_ID: com.szrventas
         XCODE_WORKSPACE: ios/Runner.xcworkspace
         XCODE_SCHEME: Runner
     scripts:
