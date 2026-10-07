@@ -325,8 +325,8 @@ class _ConfiguracionAvanzadaScreenState
       final fecha = DateFormat('yyyyMMdd_HHmm').format(DateTime.now());
       await _guardarEnDispositivo(
         zipBytes,
-        'SRAcobamba_Respaldo_$fecha.zip',
-        'Respaldo completo (catálogo + $imagenesIncluidas imágenes) - S.R. ACOBAMBA',
+        'SzrVentas_Respaldo_$fecha.zip',
+        'Respaldo completo (catálogo + $imagenesIncluidas imágenes) - Szr Ventas',
       );
     } catch (e) {
       _mostrarAviso('Error al descargar: $e', AppTheme.error);
@@ -386,8 +386,8 @@ class _ConfiguracionAvanzadaScreenState
       final fecha = DateFormat('yyyyMMdd_HHmm').format(DateTime.now());
       await _guardarEnDispositivo(
         zipBytes,
-        'SRAcobamba_Info_$fecha.zip',
-        'INFO de la tienda - S.R. ACOBAMBA',
+        'SzrVentas_Info_$fecha.zip',
+        'INFO de la tienda - Szr Ventas',
       );
     } catch (e) {
       _mostrarAviso('Error al generar la INFO: $e', AppTheme.error);
@@ -1033,7 +1033,7 @@ class _ConfiguracionAvanzadaScreenState
                     style: const TextStyle(fontSize: 12),
                   ),
                   value: _imprimirTildes,
-                  activeColor: AppTheme.accent,
+                  activeColor: AppTheme.primary,
                   onChanged: _cambiarImprimirTildes,
                 ),
               ],

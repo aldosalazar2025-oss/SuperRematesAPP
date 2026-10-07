@@ -14,7 +14,7 @@ class PrinterService {
   PrinterService._();
 
   String _monedaSimbolo = 'S/';
-  String _nombreNegocio = 'S.R. ACOBAMBA';
+  String _nombreNegocio = 'SZR VENTAS';
   String _direccion = '';
   String _telefono = '';
   String _ruc = '';
@@ -345,7 +345,7 @@ class PrinterService {
     }
     buf.writeln('');
     buf.writeln(_mensajePie);
-    buf.writeln('S.R. ACOBAMBA');
+    buf.writeln('Szr Ventas');
     return buf.toString().trim();
   }
 
@@ -458,7 +458,7 @@ class PrinterService {
     }
 
     bytes += _bytesCentrado(_mensajePie);
-    bytes += _bytesCentrado('S.R. ACOBAMBA');
+    bytes += _bytesCentrado('Szr Ventas');
 
     bytes += generator.feed(2);
     bytes += generator.cut();

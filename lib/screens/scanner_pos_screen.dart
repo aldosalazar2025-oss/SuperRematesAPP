@@ -1216,7 +1216,7 @@ class _ScannerPosScreenState extends State<ScannerPosScreen> {
               ),
               const SizedBox(height: 20),
               const Text(
-                'S.R. ACOBAMBA',
+                'Szr Ventas',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),

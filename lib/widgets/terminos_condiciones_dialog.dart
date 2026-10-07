@@ -22,7 +22,7 @@ Future<void> showTerminosCondicionesDialog(BuildContext context) {
               ),
               const SizedBox(height: 8),
               const Text(
-                'S.R. ACOBAMBA es un sistema de punto de venta (POS) para uso '
+                'Szr Ventas es un sistema de punto de venta (POS) para uso '
                 'personal o comercial. Los datos de productos, ventas e '
                 'inventario se almacenan localmente en tu dispositivo. '
                 'Eres responsable de la información que ingresas: precios, '
@@ -60,7 +60,7 @@ Future<void> showTerminosCondicionesDialog(BuildContext context) {
                   ),
                 ),
                 child: const Text(
-                  'Los tickets impresos por S.R. ACOBAMBA son comprobantes '
+                  'Los tickets impresos por Szr Ventas son comprobantes '
                   'simples de venta. No constituyen facturas, boletas de '
                   'venta ni documentos tributarios vinculados a SUNAT. '
                   'Para emitir comprobantes oficiales, debes usar los '

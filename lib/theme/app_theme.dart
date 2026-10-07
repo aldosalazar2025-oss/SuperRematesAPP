@@ -2,42 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Colores de marca S.R. ACOBAMBA — celeste y rosado (tomados del logo)
-  static const Color primary = Color(0xFF0A93D8);
-  static const Color primaryLight = Color(0xFF4FD3FF);
-  static const Color primaryDark = Color(0xFF0668A8);
-  static const Color accent = Color(0xFFFF2D9B);
+  // Colores primarios — verde de marca Szr Ventas (tomado del ícono)
+  static const Color primary = Color(0xFF12A100);
+  static const Color primaryLight = Color(0xFF7ED321);
+  static const Color primaryDark = Color(0xFF0B6E00);
+  static const Color accent = Color(0xFF9AE000);
 
-  // Colores de fondo - Tema Claro (con un leve tinte celeste para combinar)
-  static const Color bgLight = Color(0xFFF1F8FD);
+  // Colores de fondo - Tema Claro (con un leve tinte verde para combinar)
+  static const Color bgLight = Color(0xFFF4FAF3);
   static const Color bgWhite = Color(0xFFFFFFFF);
   static const Color bgCard = Color(0xFFFFFFFF);
-  static const Color bgGrey = Color(0xFFE8F3FB);
-  static const Color bgSurface = Color(0xFFF5FAFE);
+  static const Color bgGrey = Color(0xFFEFF6ED);
+  static const Color bgSurface = Color(0xFFF7FBF5);
 
   // Colores de estado
-  static const Color success = Color(0xFF0A93D8);
+  static const Color success = Color(0xFF12A100);
   static const Color warning = Color(0xFFFDBB2D);
-  static const Color error = Color(0xFFE53935);
+  static const Color error = Color(0xFFFF6B6B);
   static const Color info = Color(0xFF74B9FF);
 
-  // Texto (azul grisáceo oscuro para combinar con el tema)
-  static const Color textPrimary = Color(0xFF14202B);
-  static const Color textSecondary = Color(0xFF58687A);
-  static const Color textMuted = Color(0xFF93A3B3);
-  static const Color textHint = Color(0xFFBFCBD8);
+  // Texto (gris-verde oscuro para combinar con el tema)
+  static const Color textPrimary = Color(0xFF14231A);
+  static const Color textSecondary = Color(0xFF5C6B60);
+  static const Color textMuted = Color(0xFF93A199);
+  static const Color textHint = Color(0xFFC0CCC3);
 
   // Bordes
-  static const Color border = Color(0xFFD6E5F2);
-  static const Color borderLight = Color(0xFFE8F1F9);
+  static const Color border = Color(0xFFDCE8DA);
+  static const Color borderLight = Color(0xFFEDF4EB);
 
   // Scanner
-  static const Color scannerCorner = Color(0xFFFF2D9B);
+  static const Color scannerCorner = Color(0xFF12A100);
   static const Color scannerOverlay = Color(0x88000000);
 
   // Gradientes
   static const LinearGradient primaryGradient = LinearGradient(
-    colors: [primaryLight, primary],
+    colors: [Color(0xFF1FC400), primaryDark],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
@@ -64,11 +64,10 @@ class AppTheme {
       colorScheme: const ColorScheme.light(
         primary: primary,
         secondary: accent,
-        tertiary: accent,
         surface: bgWhite,
         error: error,
         onPrimary: Colors.white,
-        onSecondary: Colors.white,
+        onSecondary: textPrimary,
         onSurface: textPrimary,
         onError: Colors.white,
       ),
@@ -129,7 +128,7 @@ class AppTheme {
         floatingLabelStyle: GoogleFonts.inter(color: textPrimary, fontSize: 15, fontWeight: FontWeight.w700),
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: accent,
+        backgroundColor: primary,
         foregroundColor: Colors.white,
         elevation: 4,
       ),

@@ -80,33 +80,19 @@ class _SplashScreenState extends State<SplashScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/sr_acobamba.png',
-                  height: 190,
-                  width: 190,
+                  'assets/icon/logo_android.png',
+                  height: 160,
+                  width: 160,
                   fit: BoxFit.contain,
                 ),
                 const SizedBox(height: 24),
-                ShaderMask(
-                  shaderCallback: (rect) => const LinearGradient(
-                    colors: [AppTheme.accent, AppTheme.primary],
-                  ).createShader(rect),
-                  child: const Text(
-                    'S.R. ACOBAMBA',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                      letterSpacing: 1.2,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 28),
-                const SizedBox(
-                  width: 26,
-                  height: 26,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 3,
-                    color: AppTheme.accent,
+                const Text(
+                  'Szr Ventas',
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.primary,
+                    letterSpacing: 1.2,
                   ),
                 ),
               ],

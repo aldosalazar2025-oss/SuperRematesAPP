@@ -16,11 +16,11 @@ void main() async {
     systemNavigationBarColor: AppTheme.bgWhite,
   ));
 
-  runApp(const SrAcobambaApp());
+  runApp(const SzrVentasApp());
 }
 
-class SrAcobambaApp extends StatelessWidget {
-  const SrAcobambaApp({super.key});
+class SzrVentasApp extends StatelessWidget {
+  const SzrVentasApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class SrAcobambaApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CarritoProvider()),
       ],
       child: MaterialApp(
-        title: 'S.R. ACOBAMBA',
+        title: 'Szr Ventas',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         locale: const Locale('es', 'PE'),

@@ -34,7 +34,7 @@ class BienvenidaScreen extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         children: [
                           Image.asset(
-                            'assets/inicio.png',
+                            'assets/szr_ventas.png',
                             fit: BoxFit.contain,
                           ),
                           Positioned.fill(
@@ -58,7 +58,7 @@ class BienvenidaScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 const Text(
-                                  'S.R. ACOBAMBA',
+                                  'Szr Ventas',
                                   style: TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.bold,
@@ -69,8 +69,8 @@ class BienvenidaScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 12),
                                 Text(
-                                  'Punto de venta de Super Remates Acobamba: '
-                                  'vende, controla tu inventario e imprime '
+                                  'Punto de venta móvil: vende por unidad o '
+                                  'kilogramos, controla inventario e imprime '
                                   'tickets desde tu celular.',
                                   style: TextStyle(
                                     fontSize: 15,

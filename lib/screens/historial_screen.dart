@@ -619,7 +619,7 @@ class _HistorialScreenState extends State<HistorialScreen> {
 
       final fileBytes = excel.save()!;
       final dateStr = DateFormat('yyyyMMdd_HHmm').format(DateTime.now());
-      final nombreArchivo = 'SRAcobamba_Ventas_$dateStr.xlsx';
+      final nombreArchivo = 'SzrVentas_Ventas_$dateStr.xlsx';
       if (!mounted) return;
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
@@ -629,7 +629,7 @@ class _HistorialScreenState extends State<HistorialScreen> {
         await File(path).writeAsBytes(fileBytes);
         final resultado = await Share.shareXFiles([
           XFile(path),
-        ], text: 'Reporte de Ventas S.R. ACOBAMBA');
+        ], text: 'Reporte de Ventas Szr Ventas');
         if (mounted && resultado.status != ShareResultStatus.dismissed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(

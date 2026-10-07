@@ -46,7 +46,7 @@ class _AjustesScreenState extends State<AjustesScreen> {
 
   Future<void> _cargar() async {
     final prefs = await SharedPreferences.getInstance();
-    _nombreCtrl.text = prefs.getString('negocio_nombre') ?? 'S.R. ACOBAMBA';
+    _nombreCtrl.text = prefs.getString('negocio_nombre') ?? 'SZR VENTAS';
     _direccionCtrl.text = prefs.getString('negocio_direccion') ?? '';
     _telefonoCtrl.text = prefs.getString('negocio_telefono') ?? '';
     _rucCtrl.text = prefs.getString('negocio_ruc') ?? '';
@@ -843,7 +843,7 @@ class _AjustesScreenState extends State<AjustesScreen> {
       bytes.addAll(ps.comandoCodepage);
       bytes.addAll([0x1B, 0x61, 0x01]); // Align center
       bytes.addAll(ps.codificar("==========================\n"));
-      bytes.addAll(ps.codificar("S.R. ACOBAMBA\n"));
+      bytes.addAll(ps.codificar("SZR VENTAS\n"));
       bytes.addAll(ps.codificar("PRUEBA DE CONEXIÓN\n"));
       bytes.addAll(ps.codificar("Muñeco ñandú áéíóú ÁÉÍÓÚ ¡¿?!\n"));
       bytes.addAll(ps.codificar("==========================\n\n\n\n"));
