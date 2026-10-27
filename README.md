@@ -77,3 +77,55 @@ Sistema desarrollado por **Grupo Salazar**.
 Soporte por WhatsApp: **+51 900 725 974**
 
 Tienda: **Super Remates Acobamba** — "Variedad, calidad y los mejores precios".
+
+
+
+
+
+
+
+
+# 🛍️ SUPER REMATES ACOBAMBA APP
+
+### Aplicación móvil de ofertas y productos
+
+Aplicación móvil de SUPER REMATES ACOBAMBA, creada para facilitar el acceso a los productos, ofertas y promociones del negocio desde dispositivos Android.
+
+---
+
+## 📥 Descargar aplicación
+
+### 📱 SUPER REMATES ACOBAMBA para Android
+
+[⬇️ **DESCARGAR SUPER REMATES ACOBAMBA APP (.APK)**](https://github.com/aldosalazar2025-oss/SuperRematesAPP/releases/download/1.1.1/DOC-20261027-WA0001.apk)
+
+**Versión:** 1.1.1  
+**Plataforma:** Android  
+**Formato:** `.apk`
+
+---
+
+## 🚀 Instalación
+
+1. Pulsa el enlace de descarga.
+2. Descarga el archivo `DOC-20261027-WA0001.apk`.
+3. Abre el archivo descargado en tu dispositivo Android.
+4. Si Android lo solicita, autoriza la instalación desde esa fuente, siempre que confíes en el archivo.
+5. Sigue las instrucciones para completar la instalación.
+
+---
+
+## 📋 Información del proyecto
+
+- **Nombre:** SUPER REMATES ACOBAMBA APP
+- **Tipo:** Aplicación móvil
+- **Sistema operativo:** Android
+- **Formato de distribución:** APK
+- **Repositorio:** [SuperRematesAPP en GitHub](https://github.com/aldosalazar2025-oss/SuperRematesAPP)
+
+---
+
+## 📌 Nota
+
+Se requiere un dispositivo Android compatible. Descarga el archivo únicamente desde una fuente confiable.
+
